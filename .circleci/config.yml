@@ -12,7 +12,7 @@ jobs:
        - run: sls deploy 
        - run:
           name: Run Tests
-          command: npm test
+          command: npm i jest && npm test
 workflows:
   one_and_two:
     jobs:
