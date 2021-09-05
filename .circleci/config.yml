@@ -2,6 +2,7 @@ version: 2.1
 orbs:
    aws-cli: circleci/aws-cli@1.0
    serverless: circleci/serverless-framework@1.0
+   node: circleci/node@4.7.0
 jobs:
    one:
      executor: serverless/default
@@ -10,10 +11,10 @@ jobs:
        - aws-cli/setup
        - serverless/setup
        - run: sls deploy 
-       - run:
-          name: Run Tests
-          command: npm i jest && npm test
 workflows:
   one_and_two:
     jobs:
       - one
+      - node/test
+      - node/run:
+          npm-run: build
