@@ -10,6 +10,10 @@ jobs:
        - aws-cli/setup
        - serverless/setup
        - run: sls deploy 
+       - run:
+      - run:
+          name: Run Tests
+          command: npm test
 workflows:
   one_and_two:
     jobs:
