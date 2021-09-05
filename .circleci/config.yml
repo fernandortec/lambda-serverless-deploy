@@ -11,7 +11,6 @@ jobs:
        - serverless/setup
        - run: sls deploy 
        - run:
-      - run:
           name: Run Tests
           command: npm i jest && npm test
 workflows:
