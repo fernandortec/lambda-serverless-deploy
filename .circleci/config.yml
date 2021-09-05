@@ -16,5 +16,5 @@ workflows:
     jobs:
       - one
       - node/test
-      - node/run:
+      - node_yarn_run:
           npm-run: build
