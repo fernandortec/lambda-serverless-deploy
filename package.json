@@ -7,9 +7,11 @@
     "test": "jest"
   },
   "devDependencies": {
-    "chai": "^4.3.4",
-    "jest": "^27.1.0",
-    "mocha": "^9.1.1"
+    "@types/aws-lambda": "^8.10.51",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^13.13.5",
+    "aws-sdk": "^2.655.0",
+    "typescript": "^3.8.3"
   },
   "dependencies": {
     "serverless": "^2.57.0"
