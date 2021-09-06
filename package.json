@@ -12,8 +12,5 @@
     "@types/node": "^13.13.5",
     "aws-sdk": "^2.655.0",
     "typescript": "^3.8.3"
-  },
-  "dependencies": {
-    "serverless": "^2.57.0"
   }
 }
