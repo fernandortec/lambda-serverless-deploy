@@ -11,10 +11,12 @@ jobs:
        - aws-cli/setup
        - serverless/setup
        - run: sls deploy 
+       - node/install:
+          install-yarn: true
 workflows:
   one_and_two:
     jobs:
       - one
       - node/test
-      - node_yarn_run:
-          npm-run: build
+      - node_yarn_run
+          
