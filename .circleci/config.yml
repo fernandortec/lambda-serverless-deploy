@@ -22,9 +22,6 @@ jobs:
       - aws-cli/setup
       - serverless/setup
       - run: sls deploy --stage prod
-      filters:
-        branches:
-          only: main
 
   serverless-deploy-staging:
      executor: serverless/default
@@ -44,13 +41,24 @@ jobs:
       - aws-cli/setup
       - serverless/setup
       - run: sls deploy --stage staging
-      filters:
-        branches:
-          only: develop
+
 workflows:
-  serverless-deploy-prod:
+  deploy-prod:
     jobs:
-      - serverless-deploy-prod
-  serverless-deploy-staging:
+      - serverless-deploy-prod:
+          filters:
+            branches:
+              only: main
+
+  deploy-staging:
     jobs:
-      - serverless-deploy-staging
+      - serverless-deploy-staging:
+          filters:
+            branches:
+              only: develop
+
+
+
+
+
+
