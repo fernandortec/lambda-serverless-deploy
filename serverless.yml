@@ -8,9 +8,9 @@ provider:
   lambdaHashingVersion: 20201221
 
 functions:
-  hello:
-    handler: built/handler.lambdaHandler
+  deploy:
+    handler: built/src/handler.run
     events:
       - http:
-          path: hadler
+          path: /
           method: get
