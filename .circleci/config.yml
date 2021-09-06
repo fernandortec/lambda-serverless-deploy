@@ -19,9 +19,9 @@ jobs:
       - run:
           name: Build APP
           command: yarn build
-      -run:
-          name: Run tests
-          command: yarn test  
+      - run:
+          name: Run test
+          command: yarn test
 workflows:
   serverless-deploy:
     jobs:
