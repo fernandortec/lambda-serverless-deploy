@@ -21,7 +21,7 @@ jobs:
           command: yarn test
       - aws-cli/setup
       - serverless/setup
-      - run: sls deploy 
+      - run: sls deploy --stage dev
 workflows:
   serverless-deploy:
     jobs:
