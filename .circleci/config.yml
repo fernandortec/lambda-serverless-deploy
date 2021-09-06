@@ -14,8 +14,12 @@ jobs:
           org-name: circleci
       - node/install-packages:
           pkg-manager: yarn
+      - run:
+          command: yarn run test
+          name: Run YARN tests
 workflows:
   deploy:
     jobs:
       - deploy
-      - node/test
+      - node/run:
+          yarn-run: build
