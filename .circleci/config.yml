@@ -10,7 +10,9 @@ jobs:
       - checkout
       - aws-cli/setup
       - node/install:
-          install-yarn: true
+          install-npm: false
+      - node/install-yarn:
+          version: 14.17.6
       - serverless/setup:
           app-name: serverless-framework-orb
           org-name: circleci
