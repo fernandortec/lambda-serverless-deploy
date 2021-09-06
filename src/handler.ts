@@ -8,6 +8,6 @@ export const lambdaHandler = async (
   const queries = JSON.stringify(event.queryStringParameters);
   return {
     statusCode: 200,
-    body: `Queries: ${queries}`
+    body: `Queries: ${queries}, '<><><><><><>`
   }
 }
