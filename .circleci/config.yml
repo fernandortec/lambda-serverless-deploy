@@ -48,7 +48,7 @@ workflows:
       - serverless-deploy-prod:
           filters:
             branches:
-              only: main
+              only: master
 
   deploy-staging:
     jobs:
