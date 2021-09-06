@@ -4,7 +4,7 @@ orbs:
    serverless: circleci/serverless-framework@1.0
    node: circleci/node@4.7.0
 jobs:
-  serverless-deploy:
+  serverless-deploy-prod:
      executor: serverless/default
      steps:
       - checkout
@@ -22,7 +22,43 @@ jobs:
       - aws-cli/setup
       - serverless/setup
       - run: sls deploy --stage prod
+
+  serverless-deploy-staging:
+     executor: serverless/default
+     steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          name: Install dependencies
+          command: yarn install
+      - run:
+          name: Build
+          command: yarn build
+      - run:
+          name: Run tests
+          command: yarn test
+      - aws-cli/setup
+      - serverless/setup
+      - run: sls deploy --stage staging
+
 workflows:
-  serverless-deploy:
+  deploy-prod:
     jobs:
-      - serverless-deploy
+      - serverless-deploy-prod:
+          filters:
+            branches:
+              only: main
+
+  deploy-staging:
+    jobs:
+      - serverless-deploy-staging:
+          filters:
+            branches:
+              only: develop
+
+
+
+
+
+
