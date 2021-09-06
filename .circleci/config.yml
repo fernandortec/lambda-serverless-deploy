@@ -12,23 +12,21 @@ jobs:
       - serverless/setup:
           app-name: serverless-framework-orb
           org-name: circleci
-  code-deploy:
-    - node/install:
-        install-yarn: true
-    - run:
-        name: Install dependencies
-        command: yarn
-    - run:
-        name: Prettier (Code Styling)
-        command: yarn prettier
-    - run:
-        name: ESlint (Code lint)
-        command: yarn lint
-    - run:
-        name: Build APP
-        command: cd web && yarn build
+      - node/install:
+          install-yarn: true
+      - run:
+          name: Install dependencies
+          command: yarn
+      - run:
+          name: Prettier (Code Styling)
+          command: yarn prettier
+      - run:
+          name: ESlint (Code lint)
+          command: yarn lint
+      - run:
+          name: Build APP
+          command: cd web && yarn build
 workflows:
   serverless-deploy:
     jobs:
       - serverless-deploy
-      - code-deploy
