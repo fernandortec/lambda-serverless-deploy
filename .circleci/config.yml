@@ -4,17 +4,17 @@ orbs:
    serverless: circleci/serverless-framework@1.0
    node: circleci/node@4.7.0
 jobs:
-   one:
+   deploy:
      executor: serverless/default
      steps:
-       - checkout
-       - aws-cli/setup
-       - serverless/setup
-       - run: sls deploy 
+      - checkout
+      - aws-cli/setup
+      - serverless/setup:
+          app-name: serverless-framework-orb
+          org-name: circleci
 workflows:
-  one_and_two:
+  deploy:
     jobs:
       - one
       - node/test
-      - node_yarn_run:
-          npm-run: build
+          
