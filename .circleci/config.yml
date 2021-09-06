@@ -9,26 +9,11 @@ jobs:
      steps:
       - checkout
       - aws-cli/setup
-      - node/install:
-          install-npm: false
-      - node/install-yarn:
-          version: 1.22.10
       - serverless/setup:
           app-name: serverless-framework-orb
           org-name: circleci
-      - restore_cache:
-          name: Restore Yarn Package Cache
-          keys:
-            - yarn-packages-{{ checksum "yarn.lock" }}
-      - run:
-          name: Install Dependencies
-          command: yarn install --immutable
-      - save_cache:
-          name: Save Yarn Package Cache
-          key: yarn-packages-{{ checksum "yarn.lock" }}
-          paths:
-            - .yarn/cache
-            - .yarn/unplugged
+      - node/install-packages:
+          pkg-manager: yarn
 workflows:
   deploy:
     jobs:
