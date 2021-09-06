@@ -12,5 +12,5 @@ functions:
     handler: built/handler.lambdaHandler
     events:
       - http:
-          path: hello
+          path: hadler
           method: get

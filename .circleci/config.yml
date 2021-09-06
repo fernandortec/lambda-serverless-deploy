@@ -7,21 +7,21 @@ jobs:
   serverless-deploy:
      executor: serverless/default
      steps:
-      - checkout
-      - aws-cli/setup
-      - serverless/setup
-      - run: sls deploy 
       - node/install-packages:
           pkg-manager: yarn
       - run:
           name: Install dependencies
           command: yarn install
       - run:
-          name: Build APP
+          name: Build
           command: yarn build
       - run:
-          name: Run test
+          name: Run tests
           command: yarn test
+      - checkout
+      - aws-cli/setup
+      - serverless/setup
+      - run: sls deploy 
 workflows:
   serverless-deploy:
     jobs:
