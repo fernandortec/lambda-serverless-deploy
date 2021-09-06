@@ -12,11 +12,11 @@ jobs:
       - serverless/setup:
           app-name: serverless-framework-orb
           org-name: circleci
-      - node/install:
-          install-yarn: true
+      - node/install-packages:
+          pkg-manager: yarn
       - run:
           name: Install dependencies
-          command: yarn
+          command: yarn install
       - run:
           name: Prettier (Code Styling)
           command: yarn prettier
