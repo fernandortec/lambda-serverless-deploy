@@ -9,9 +9,8 @@ jobs:
      steps:
       - checkout
       - aws-cli/setup
-      - serverless/setup:
-          app-name: serverless-framework-orb
-          org-name: circleci
+      - serverless/setup
+      - run: sls deploy 
       - node/install-packages:
           pkg-manager: yarn
       - run:
@@ -20,6 +19,9 @@ jobs:
       - run:
           name: Build APP
           command: yarn build
+      -run:
+          name: Run tests
+          command: yarn test  
 workflows:
   serverless-deploy:
     jobs:
