@@ -8,8 +8,8 @@ provider:
   lambdaHashingVersion: 20201221
   
 custom:
-  functionsBasePath: src/handlers
-  
+  functionsBasePath: src/built
+
 functions:
   hello:
     handler: handler.hello
