@@ -12,10 +12,9 @@ jobs:
       - serverless/setup:
           app-name: serverless-framework-orb
           org-name: circleci
-      - node/install:
-          install-yarn: true
       - node/install-packages:
-          pkg-manager: yarn
+          cache-path: ~/project/node_modules
+          override-ci-command: yarn i
       - run:
           command: yarn run test
           name: Run YARN tests
