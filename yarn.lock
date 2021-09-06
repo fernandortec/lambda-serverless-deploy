@@ -2240,11 +2240,6 @@ semver@^7.3.2:
   dependencies:
     lru-cache "^6.0.0"
 
-serverless-functions-base-path@^1.0.32:
-  version "1.0.32"
-  resolved "https://registry.yarnpkg.com/serverless-functions-base-path/-/serverless-functions-base-path-1.0.32.tgz#cae7c233743e39717bb5e635245c0d173d635bbe"
-  integrity sha512-plowyy28cSWX1kfkkSZOpLymdiruVxUCiM/qtGIBTUmenPB2h0i+QK/i1pRhOGYK+fR+vZbOHzdNPB+QZfbdRw==
-
 shebang-command@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/shebang-command/-/shebang-command-2.0.0.tgz#ccd0af4f8835fbdc265b82461aaf0c36663f34ea"
