@@ -18,14 +18,8 @@ jobs:
           name: Install dependencies
           command: yarn install
       - run:
-          name: Prettier (Code Styling)
-          command: yarn prettier
-      - run:
-          name: ESlint (Code lint)
-          command: yarn lint
-      - run:
           name: Build APP
-          command: cd web && yarn build
+          command: yarn build
 workflows:
   serverless-deploy:
     jobs:
