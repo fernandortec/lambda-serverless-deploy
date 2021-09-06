@@ -12,5 +12,5 @@ functions:
     handler: built/src/handler.run
     events:
       - http:
-          path: /
+          path: /api/info
           method: get
