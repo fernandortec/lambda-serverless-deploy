@@ -9,7 +9,6 @@ provider:
   
 functions:
   hello:
-    codeUri: server/built
     handler: handler.hello
     events:
       - http:
