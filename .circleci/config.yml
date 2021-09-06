@@ -4,7 +4,7 @@ orbs:
    serverless: circleci/serverless-framework@1.0
    node: circleci/node@4.7.0
 jobs:
-   deploy:
+  deploy:
      executor: serverless/default
      steps:
       - checkout
@@ -16,9 +16,21 @@ jobs:
       - serverless/setup:
           app-name: serverless-framework-orb
           org-name: circleci
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Dependencies
+          command: yarn install --immutable
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - .yarn/cache
+            - .yarn/unplugged
 workflows:
   deploy:
     jobs:
       - deploy
       - node/test
-          
