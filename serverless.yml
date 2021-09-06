@@ -7,10 +7,15 @@ provider:
   runtime: nodejs12.x
   lambdaHashingVersion: 20201221
   
+custom:
+  functionsBasePath: src/handlers
+  
 functions:
   hello:
-    handler: built/handler.hello
+    handler: handler.hello
     events:
       - http:
           path: hello
           method: get
+plugins:
+  - serverless-functions-base-path
